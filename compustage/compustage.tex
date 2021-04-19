@@ -1,0 +1,549 @@
+% ============================ compustage.tex ========================
+% 3456789012345678901234567890123456789012345678901234567890123456789012
+% Version of 04-Jan-2013
+% Assumes a directory structure
+% ../work/
+% ../work/global/...
+% ../work/proj/name/dat/...
+% ../work/proj/name/scripts/...
+% ../work/proj/name/TeX/...
+% ../work/proj/name/Sweave/...
+% ../work/proj/name/R/...
+% Works well for 800x600 images. Might need to change width for
+% other aspect ratios...
+
+\documentclass[12pt]{article}
+\usepackage[margin=0.75in, letterpaper]{geometry} 
+
+% define some shortcuts for this document
+% in the spirit of DRY
+\newcommand{\theAuthor}{FEI and J. Minter}
+\newcommand{\theTitle}{FEI CM20UT CompuStage Instructions}
+\newcommand{\theSubject}{My subject}
+\newcommand{\theDate}{\today}
+\newcommand{\theKeywords}{some, key, words}
+
+% favorite packages
+\usepackage{graphicx}
+\usepackage{subfig}
+\usepackage{textcomp} % Greek in text mode - \textmu
+\usepackage{hyperref} % urls - \href{url}{text}
+
+\hypersetup
+{
+    pdfauthor={\theAuthor},
+    pdfsubject={\theSubject},
+    pdftitle={\theTitle},
+    pdfkeywords={\theKeywords}
+}
+
+\usepackage{verbatim} 
+%\usepackage[parfill]{parskip} % begin paragraphs with empty line
+                             
+\usepackage{color}
+\usepackage{microtype}
+
+% define colors
+\definecolor{kodak-red}{RGB}{204,0,0}
+\definecolor{kodak-yellow}{RGB}{255,204,0}
+
+% define degree symbol
+\newcommand{\degree}{\ensuremath{^\circ}}
+
+% define commands for subscripts & superscripts to use in text mode
+\newcommand{\superscript}[1]{\ensuremath{^{\textrm{#1}}}}
+\newcommand{\subscript}[1]{\ensuremath{_{\textrm{#1}}}}
+
+
+% The preamble for this document...
+% In case I want a TOC
+\title{\theTitle}
+\author{\theAuthor}
+\date{\theDate}
+
+\begin{document}
+\bibliographystyle{IEEEtran}	 % (uses file "IEEEtran.bst")
+
+% un-comment to make a standard title
+% \maketitle
+
+
+% I prefer more control over a title, and so use this
+\begin{center}
+\textbf{\LARGE{\theTitle}}
+\end{center}
+
+\begin{center}
+\theAuthor
+\footnote{These updated instructions for the FEI CM20UT CompuStage are
+adapted from the Technai F20/30 column manual.}
+\end{center}
+
+\vspace{0.125in}
+\hrule
+\vspace{0.125in}
+
+The CompuStage is a motor-driven goniometer that provides
+computer-controlled movement of the specimen on five axes (X, Y, Z,
+$\alpha$, $\beta$). The CompuStage consists of the following elements:
+\begin{itemize}
+\item Hardware (the goniometer), including motor drives and
+position-measuring system.
+\item Control electronics, including a dedicated microprocessor.
+\item CompuStage server software which provides the link between the
+user interface (software and hardware controls like the track ball
+for X-Y motion) and the CompuStage microprocessor.
+\item Hardware controls, consisting of a track ball for X-Y motion and
+pressure-sensitive up-down switches for Z, $\alpha$, $\beta$.
+\item User interface software with translates operator input into
+goniometer actions. The definition of the physical position of the stage
+axes in the microscope column is covered in a separate section.
+\end{itemize}
+
+\section{Specimen holders}
+The CompuStage can be equipped with a variety of holders, which are
+inserted or removed via an airlock. Specimen holders are inserted into
+ultra-high vacuum and must be kept clean. Special handling
+instructions for specimen holders should be adhered to.
+
+\section{Eucentric height}
+The a tilt of the CompuStage is constructed in such a way that it is
+possible to tilt around it without having large apparent movements of
+the point of interest on the specimen. This is called eucentric tilting
+and is achieved by bringing the point of interest to the same height
+(with the Z axis) as the a tilt axis itself: the eucentric height. The
+eucentric height is important because it not only provides an easy way
+of tilting without having to correct specimen position continuously,
+but it also defines the reference point inside the microscope for all
+alignments, magnification, camera lengths, and so on. In general one
+should work at the eucentric height (the only reason for deviating
+could be that at very high $\beta$ tilts and specimen positions away
+from the center, the range of the Z axis may not be sufficient to
+bring the specimen to the eucentric height).
+
+\subsection{To set the specimen to the eucentric height}
+
+\subsubsection{Method 1 Eucentric Focus Preset}
+
+Once the microscope has been aligned (as it normally should be), the
+eucentric focus preset (obtained by pressing the Eucentric Focus
+button) sets the objective-lens setting to the correct value for a
+specimen that would be exactly at the eucentric height. If the specimen
+is not at the eucentric height, it will appear out of focus. If you now
+bring the specimen into focus by changing the Z height, not the
+focus, it will go to the eucentric height. It may help to switch on the
+wobbler, since the apparent displacement between the two wobbler images
+makes it easy to see whether the height is changed in the right
+direction (the displacement between the images becomes smaller).
+
+\subsubsection{Method 2 The Alpha Wobbler}
+
+Since the image displacement on tilting is minimised at the eucentric
+height, the eucentric height can be set by minimising the displacement
+while the stage is tilting. For this purpose the CompuStage has the
+Alpha Wobbler function. When this function is activated, the CompuStage
+is tilted continuously between two preset tilts (typically -15 and
++15\degree ). Change the Z height to make the displacement smaller. When
+the displacement is minimised the specimen is at the eucentric height.
+
+
+\section{Safety features}
+For safety the CompuStage is equipped with a number of special features
+like the MaxiTilt system which allows maximum use of the available space
+between the pole piece for tilting while guarding against damage of
+holder, pole pieces and other objects in the pole-piece gap like the
+objective aperture holder.
+
+Another feature is the sEntry system which guards against insertion of
+holders that are incompatible (too big) for the objective-lens
+pole-piece configuration of the microscope.
+
+\subsection{MaxiTilt system}
+
+Because tilting takes place around the eucentric point, the motion of
+the specimen holder may require a lot of space (see picture below).
+In the restricted space available between the pole pieces of some
+objective lens types, there may not be enough room to tilt very far.
+But the pictures above demonstrate that the available tilt range is
+very much dependent on the position of the stage (mostly the Y
+and Z axes). The MaxiTilt system of the CompuStage provides a flexible
+way of keeping the tilt within a safe range, while at the same time
+maximising the tilt available. The MaxiTilt senses what the maximum
+tilt is for the current stage position. If this range is exceeded
+(a situation called a pole hit), the CompuStage will move a little bit
+back on the axis that was changed last.
+
+If there is no axis identifiable, the $\beta$ or $\alpha$ tilt will move
+back. The microscope will display an information message that a pole
+hit has been detected.
+
+
+\subsection{sEntry system}
+
+The CompuStage is equipped with a SafeEntry (or sEntry) system that
+prevents holders from being inserted into microscopes where the
+objective-lens pole-piece configuration is not compatible with the
+particular holder (like thick holders into objective lenses with a
+gap that is too narrow for the holder to fit).
+
+The sEntry system consists of a key (a pin varying in shape and
+diameter) on the holder defining the holder dimensions and a lock on
+the CompuStage defining the pole-piece configuration. The length of
+the sEntry key is such that if an incompatible holder is inserted,
+the key (blocked by the lock) prevents the holder from going between
+the pole pieces.
+
+Although older specimen holders designed fo the manual goniometer will
+fit in the CompuStage (provided their O-ring is exchanged for a
+-- thicker -- CompuStage O-ring), these holders are not equipped with a
+sEntry key and may therefore be unsafe with objective pole-piece
+configurations with narrow gaps such as the U-TWIN.
+
+\section{Red CompuStage light}
+
+The red CompuStage light has a more generic function than previously
+used on manual goniometers. It simply means that no airlock actions
+(insertion or removal) should be executed. This will happen of
+course while the airlock is being pumped when a holder is inserted into
+the microscope. It can also mean
+that it is unsafe to extract the holder under the current conditions
+(when the $\beta$ tilt is more than 5 degrees
+or during movement the red light will also be on). In that case, the
+unsafe situation must be rectified before the holder can be extracted
+(reset $\beta$ tilt to zero or wait until movement is finished).
+
+
+\section{Homing}
+
+Before the CompuStage is ready for use (when the microscope has been
+switched off altogether or after the CompuStage has been disabled), it
+must be homed, a procedure in which it finds the zero positions.
+
+During homing the CompuStage will move each of the four fixed axes (X,
+Y, Z and $\alpha$; the $\beta$ tilt axis is homed separately whenever
+a double-tilt holder is inserted) to one extreme. Because of the high
+tilt applied, this procedure must be executed without a specimen holder.
+In order to make sure that there is no specimen holder present, the
+microscope has to ask the operator to identify the specimen holder
+(which in this case should be 'No specimen holder', otherwise the
+homing cannot proceed).
+
+If no user interface is active, there is no way for communicating with
+the operator. Consequently, the homing procedure after a start-up will
+only proceed once the user interface has started. Even if the user
+interface does not show a message to select a specimen holder after a
+restart of the microscope, but the CompuStage does not move (easily
+checked by moving the right-hand track ball a bit), it is very likely
+that the CompuStage has not been homed. Select the Stage Settings
+Control Panel and press the Enabled button. The homing procedure will
+start.
+
+\section{Parking position}
+
+Occasionally it is necessary to get the specimen and/or specimen holder
+out of the way (for example, when no electron beam is visible initially
+or in some alignment steps if the specimen blocks the beam).
+Although it is possible to retract the holder fully and turn it slightly
+(the initial part of removing the specimen holder), it is better not to
+do this, because it can lead to a potential leak. The preferred method
+to `remove' the specimen holder is to retract\footnote{Always retract
+the holder slowly to allow the O-ring to keep the seal.} it about one
+or two centimeters and stick something elongated (a pen with a diameter
+of a centimeter or so will do nicely\footnote{Manual-goniometer specimen
+holders with the sapphire at the end have a longer tip than CompuStage
+holders and must be retracted at least three centimeters before they
+are clear from the field of view.}) between the inside cap of the
+holder and the CompuStage. The 'elongated' item will prevent the holder
+from moving back in and the distance is sufficient to remove any
+obstruction from the field of view.
+
+\section{Specimen-holder handling}
+
+\subsection{Specimen-holder selection}
+
+There are two ways for informing the microscope which specimen holder
+is being used:
+\begin{itemize}
+\item \textbf{Not automatic:} Each time a holder is inserted, the
+holder must be selected from the list that pops up in the message area
+of the Tecnai user interface.
+
+\item \textbf{Default:} Only for single-tilt holders, the last-used
+setting is selected automatically.
+\end{itemize}
+
+The CompuStage is equipped with the sEntry system. Associated with this
+system is an up-down switch on the outer panel of the CompuStage. The
+top part of the switch depends on the type of objective lens
+(with smaller lens gaps, the hole in the top is made smaller so only
+specific types of holders will fit).
+
+The shield of the CompuStage showing the position of the
+holder-selection switch (gray). The switch itself is controlled by a
+notch in the lower rectangle. The actual shape of the top of the switch
+varies and on some microscope will block the sEntry key of the specimen
+holder from being inserted.
+
+\begin{itemize}
+\item  In the up position (left-hand picture above), the Default holder
+selection is enabled. In this case the microscope will automatically
+select a single-tilt holder. In case there are more single-tilt holders
+present on the system (e.g. normal single- tilt and cryo holder), the
+holder selected is the last one chosen. If there are more single-tilt
+holders present, then for the first insertion, move the switch
+down, insert and identify the holder you are using, then move the
+switch up again. Thereafter the microscope will automatically select
+the same holder again.
+
+\item  In the down position, the holder used must be identified by the
+user. This must always be done for double-tilt holders (the reason this
+is necessary has to do with the $\beta$ tilt cable which must be
+connected before the holder can be inserted into the microscope), so do
+not use the switch up position with double-tilt holders.
+\end{itemize}
+
+\subsection{Handling instructions}
+
+Specimen holders are a bridge between the air pressure outside the
+column and the ultra-high vacuum inside. Their cleanliness is an
+important factor in keeping contamination down (specimen holders are the
+second-most important source of the contamination - specimens themselves
+are the primary source nowadays). Caution should therefore applied to
+handling specimen holders. The following instructions should be
+adhered to:
+
+\begin{itemize}
+\item  Always use clean nylon or similar gloves when handling
+specimen-holder parts that enter the vacuum (that is, between the tip
+of the holder and the sealing O-ring).
+
+\item  Clean the tip of the holder only with special cleaning fluids or
+with a fresh piece of window-cleaning (chamois) leather.
+
+\item  Specimen, spacing washers and clamping devices should be
+manipulated only using pointed tweezers or the tools provided. Tools
+like the hex-ring tool or the needle for levering the single-tilt
+holder clamp should never be touched by hand on the wrong side (in
+the case of the hex-ring tool the use of gloves is advised because it
+is easy to pick it up at the wrong end). Clean the washers, tools
+and tweezers on a regular basis.
+
+\item  The O-ring on the specimen-holder rod should be checked for
+possible dirt or excessive quantities of grease although it should not
+be completely dry. A very light coating of Fomblin grease (supplied with
+the microscope) is advised. Take care not apply grease to the conical
+part of the holder (the part between the thicker and thinner sections
+of the rod). The conical part is the area where the holder is
+`seated' in the CompuStage. Any grease there will very likely result
+in drift in excess of specimen.
+
+\item  When a specimen holder is not in use, insert it in the protective
+holder cover supplied or reinsert it into the microscope. The latter
+keeps the holder thermally equilibrated with the microscope and
+CompuStage, thereby reducing drift after holder insertion (especially
+if there is a considerable
+temperature difference between the room and the microscope column).
+\end{itemize}
+
+\subsection{Inserting a specimen into the single-tilt holder}
+
+(Instructions for mounting specimens in other holders are covered in
+the manual accompanying these holders.)
+Note: For easy removal of specimens from the holder, a notch is provided
+on the holder (see the images below). One tip of a pair of tweezers
+can be inserted in this notch underneath the specimen (once the clamp
+has been lifted), making it easy to take the specimen out of the holder.
+
+\begin{itemize}
+\item  If necessary, remove the cap at the end of the tube of the
+specimen-holder cover.
+\item  Check that the tip of the holder and the clamping device are
+clean and dry.
+\item  Keep one hand against the cap of the holder, making sure it
+cannot move out of the cover tube.
+\item  Fit the tool (stored in one of the holes in the supports of
+the cover tube) into the hole in front of the clamp. Then lift the
+clamp to its fullest extent.
+\item  Place the specimen in the (roughly) circular recess of the
+specimen-holder tip. If the specimen is on a re-insertable grid, place
+the `ear' of the grid in the 'ear' recess.
+\item  Carefully lower the clamp with the tool onto the specimen. Make
+sure the specimen remains correctly in position. \textbf{Caution:}
+The specimen-securing clamp must be lowered carefully, otherwise the
+specimen and/or clamp can be damaged.
+\item  Retract the holder slightly in the cover and turn it upside down.
+Tap the cap at the end a few times. Turn the holder back and check that
+the specimen has not moved (movement is a sign that it isn't clamped
+properly). Note: Never mount magnetic specimens (disks) in the
+single-tilt holder. The clamp is normally not strong enough to prevent
+the specimen from flying out due to the objective-lens magnetic field
+and sticking to the objective-lens pole pieces.
+\end{itemize}
+
+\subsection{Inserting a specimen holder into the microscope}
+
+Caution: The following instructions apply to all specimen holders and
+must be followed completely or damage to airlock, specimen holder or
+specimen stage may result.\footnote{Read the specimen-holder handling
+instructions before proceeding.}
+
+The FEG microscopes are equipped with a
+turbo-molecular pump: The turbo-molecular pump (which should not remain
+running under normal microscopy because of the vibrations it causes)
+takes several minutes (2-3) to reach operational speed. To speed up
+specimen exchange, it is advised to switch the pump on (use the toolbar
+button) before extracting the holder. By the time the specimen has
+been exchanged the turbo-molecular pump will be near or at its operation
+speed and pumping on the airlock will begin (almost) immediately. Switch
+the pump off again after the holder has been inserted fully into the
+microscope.
+
+If the turbo-molecular pump is running on when the specimen holder is
+inserted into the airlock, the pump will first spin up and only after a
+few minutes start pumping on the airlock. In this situation (holder
+triggers the pump), the pump will be switched off automatically after
+pumping on the airlock has finished.
+
+The specimen airlock of the CompuStage and the specimen holder consist
+of fine, high-quality mechanics. If considerable force is needed for
+any manual actions on the holder or CompuStage, it is a sign of
+something being wrong. It should never be necessary to exert strong
+force and doing so may well result in damage to specimen holder or
+CompuStage.
+
+It is not necessary to switch off high tension or filament during
+specimen-holder insertion, since the gun is separated from the column
+by the gun valve (V7) which is closed during specimen insertion
+(even if the user doesn't close the column valves, the microscope will
+automatically do so when it detects that a specimen holder has been
+inserted; it is good practice, however, to close the column valves
+before extracting the specimen holder from the microscope so they will
+still be closed when a holder is inserted again). It is advised,
+however, to keep the column valves closed after insertion of the holder
+(typically for a few minutes) while the specimen-area vacuum
+recovers -- if only to reduce contamination of the specimen. Using the
+cold trap is advised to trap water vapour quickly (ion-getter pumps
+have difficulty in pumping water).
+
+Always carry out the complete insertion procedure. If the specimen is
+left in a retracted position, vacuum leakage can occur with consequent
+contamination (or, if left for a long period, loss of vacuum in
+the airlock and a crash of the column if the specimen holder is then
+inserted). If you do not want to insert the specimen holder after all
+(or if the airlock isn't pumped properly, for example because of a
+leaking O-ring), leave the airlock cycle to finish pumping (the red
+LED on the CompuStage goes off) before removing the holder from the
+airlock. Do not extract the holder while the airlock is being pumped.
+The specimen holder is introduced through a pre-pumped airlock which
+ensures that air, introduced with the holder, is pumped away before the
+airlock is opened to the microscope column.
+
+\subsection{Procedure}
+\begin{itemize}
+\item Hold the specimen holder with the airlock trigger pin parallel
+to the small slit in the CompuStage front plate (at roughly four
+o'clock). Carefully insert the end of the specimen holder into the
+airlock cylinder and slide the holder in until a stop is reached. At
+this point the prepumping of the airlock will start as indicated by the
+red CompuStage light which will be illuminated. If the light does not
+come on, the trigger has not been positioned correctly. Slowly turn
+the holder slightly to the left and the right until it will go in a
+bit further (the airlock trigger pin now falls properly into its groove).
+
+\item The Tecnai user interface will display a message asking for
+identification of the specimen holder. Select the type of holder from
+the list and press the Enter button.
+
+\end{itemize}
+
+\section{Stage movement}
+
+The specimen stage movement is controlled by a track ball (normally the
+right-hand one, but the assignment can be changed by the user) and/or
+by Multifunction knob. The movement has two modes of operation:
+
+\begin{itemize}
+\item The track ball (discontinuous movement) mode.
+\item The `joy stick' (continuous movement) mode.
+\end{itemize}
+
+In the track ball mode (the default) the stage will move whenever the
+track ball has been moved, in the direction and with a displacement
+related to the direction and displacement of the track ball. As soon as
+the track ball stops moving, the stage will stop moving as well. For
+normal operation at moderate to high magnifications this is the
+preferred mode. However, for searching at low magnifications the
+track ball mode requires that the user keeps moving the track ball
+continuously.
+
+In the 'joy stick' mode the stage will move in the direction indicated
+by the movement of the track ball and with a speed related to the
+displacement of the track ball, and the stage will keep moving in the
+indicated direction without requiring further input through the track
+ball. The direction and speed of movement can be influenced by further
+control of the track ball. To stop the stage movement in the `joy stick'
+mode, press one of the track ball buttons.
+
+Switching between the two modes is achieved by pressing the two track
+ball buttons simultaneously.
+
+\subsection{Speed control}
+
+The speed of movement of the stage is related to three parameters:
+
+\begin{itemize}
+\item The speed value setting (1 to 9) as defined by pressing the
+left- (speed down) and right-hand (speed up) track ball buttons.
+\item The current magnification.\footnote{One exception is at the
+lowermost speed setting. In this case the CompuStage will make its
+smallest steps, independent of magnification. At low magnifications
+this may mean that the stage doesn't seem to move at all. If the latter
+is the case, click once on the right-hand track-ball button to switch
+the speed one step up.}\footnote{ At very low magnifications the speed
+control may appear to function no longer (speed up doesn't increase the
+speed of the CompuStage). This means that the CompuStage has reached its
+maximum speed and can go no faster.}
+\item The displacement of the track ball.
+\end{itemize}
+
+\subsection{Specimen stage movement by Multifunction knob}
+
+The specimen stage movement can also be assigned to the Multifunction
+knobs. In this case the Multifunction knobs duplicate the track ball
+directions (that is, Multifunction X = track ball X). The knobs
+are thus not connected directly to a stage axis (technically this is
+not possible within the software architecture). For most microscopes
+this means that the X axis (the direction of the a tilt axis) is
+approximately connected to the Multifunction Y knob.
+
+\subsection{Stage Axes}
+
+The CompuStage is a goniometer with five axes. Three of these are
+orthogonal translation movements X, Y and Z. The other two are mutually
+perpendicular rotation movements, a and b. The a tilt is parallel
+to the X axis and b tilt parallel to the Y axis.
+
+The orientation in space of these axes can only be described at a tilt
+at 0\degree\ (since the other axes are mounted on top of the a tilt,
+they will change their orientation with it). At a tilt 0\degree\ the X
+and Y axes are horizontal and the Z axis vertical. The X axis runs
+along the rod of the specimen holder. If you look down
+on the microscope and define the front of the microscope as south, the
+X axis thus runs NW-SE, with SE in the + direction and the Y axis NE-SW
+with NE as the + direction. Up is the + direction of the Z axis.
+
+The X axis describes a truly linear motion, the Y and Z are in fact
+circular motions but with such a wide radius that the motion remains
+close to linear. The Y and Z motions cause the specimen holder rod to
+pivot around the conical face where it narrows down, just beyond the
+O-ring.
+
+Because of this pivoting motion, the end of the holder on the outside
+of the CompuStage moves in the opposite direction! Below is a schematic
+3-D view of the specimen holder tip and the orientation of the stage
+axes.
+
+Note: The notation differs from that on the earlier CompuStage of the
+CM microscopes where the sign of the X and Y axes is reversed.
+
+\end{document}

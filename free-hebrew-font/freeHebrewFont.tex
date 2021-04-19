@@ -1,0 +1,17 @@
+% !TeX program = xelatex
+\documentclass{article}
+\usepackage{unicode-math}
+\usepackage{fontspec}
+\setmathfont[Scale=10]{latinmodern-math.otf}
+\setmathfont[range={\aleph,\beth,\gimel,\daleth}, Scale=10.0]{FreeSerif.otf}
+\title{Example large Greek and Hebrew fonts}
+\author{John Minter}
+\date{2019-04-28}
+\begin{document}
+% From:
+% https://tex.stackexchange.com/questions/170476/how-to-get-aleph-and-beth-symbols-in-similar-font/170494#170494
+\[ \aleph \beth \gimel \daleth \]
+
+\[ \alpha \beta \gamma \delta \]
+
+\end{document}

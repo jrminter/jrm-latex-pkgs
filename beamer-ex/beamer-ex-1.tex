@@ -1,0 +1,114 @@
+% !TEX TS-program = xelatex
+% !TEX encoding = UTF-8 Unicode
+%
+% based on
+% https://www.youtube.com/watch?v=0fsWGg81RwU
+% From Michelle Krummel
+% N.B. - Requires inc/xsquared.png
+%
+% try default instead of beamer
+%
+\documentclass[12]{beamer}
+\usepackage{multicol}
+\usepackage{enumitem}
+
+% default to deal with metropolis
+\usetheme[progressbar=frametitle]{beamer}
+\setbeamertemplate{frame numbering}[fraction]
+\usefonttheme{default}
+\usecolortheme{spruce}
+\setbeamercolor{background canvas}{bg=white}
+
+\definecolor{mygreen}{rgb}{.125, .5, .25}
+\usecolortheme[named=mygreen]{structure}
+
+
+
+\title[Short Title]{Functions, Limits, Derivatives}
+\subtitle{Subtitle}
+\author{Michelle Krummel}
+%\institute{ajou university.}
+\institute {\large \textbf{Learning Outcomes}: \\[6pt] Identify properties of elementary functions (formed by composition of power, exponential, logarithmic, and trigonometric functions and their inverses).}
+
+\date{}
+\setbeamercovered{transparent=5}
+
+
+\begin{document}
+\metroset{block=fill}
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}[t]{Functions} \vspace{4pt}
+\begin{block}{Definition of a function}
+\vspace{0.5em}
+A \textbf{function} $f$ is a rule that assigns to each element $x$ in a set $D$ exactly one element, called  $f(x)$ in a set $E$.
+\vspace{0.5em}
+\end{block}
+
+\vspace{10pt}
+Set $D$ is called the 
+\only<1>{\line(1,0){50}}
+\only<2>{\textcolor{magenta}{domain}}
+\, of the function. \\[10pt]
+
+Set $E$ is called the 
+\only<1>{\line(1,0){50}}
+\only<2>{\textcolor{magenta}{range}}
+\, of the function.
+\end{frame}
+
+\begin{frame}{your very first flash card}\vspace{10pt}
+\begin{columns}[onlytextwidth]
+\column{0.4\textwidth}
+$\sqrt[x^2]=$\\[10pt]
+\begin{enumerate}[label=(\Alph*)]
+\item $x$
+\item $-x$
+\item $|x|$
+\item undefined
+\end{enumerate}
+\column{0.6\textwidth}
+\only<3>{
+$\sqrt{x^2}=
+\begin{cases}
+-x, & x<0\\
+x, & x \geq 0
+\end{cases}$\\[10pt]}
+\only<2->{
+	\includegraphics[scale=0.45]{inc/xsquared.png}
+}
+\end{columns}
+\end{frame}
+\begin{frame}[t]{Parent Functions} \vspace{4pt}
+your should  be able to identify by name and ektch a graph of each of the following parent functions.
+\begin{enumerate}[label= ]
+\begin{multicols}{3}
+\item $y=x$
+\item $y=|x|$
+\item $y=x^2$
+\item $y=x^3$
+\item $y=x^b$
+\onslide<2->{
+\item $y=\sqrt{x}$
+\item $y=\sqrt[3]{x}$
+\item $y=\frac{1}{x}$
+\item $y=2^x$
+\item $y=e^x$
+}
+\onslide<3->{
+\item $y=\ln(x)$
+\item $y=\frac{1}{1+e^{-x}}$
+\item $y=sinx$
+\item $y=cosx$
+\item $y=tanx$}
+\end{multicols}
+\end{enumerate}
+\end{frame}
+\begin{frame}{standout}
+\begin{flushleft}
+Homework p642\#7-21
+\end{flushleft}
+\end{frame}
+\end{document}﻿

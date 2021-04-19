@@ -1,0 +1,34 @@
+% !TEX spellcheck = English
+
+\documentclass[fontsize=12pt, paper=lettter]{scrlttr2}
+
+% Don't forget to read the KOMA-Script documentation, scrguien.pdf
+% This is from TexShop on MacOS
+
+% \setkomavar{fromname}{} % your name
+% \setkomavar{fromaddress}{194 Applewood Drive \\
+%                                            Rochester, NY 14612} % {Address \\ of \\ Sender}
+
+\setkomavar{signature}{} % printed after the \closing
+\renewcommand{\raggedsignature}{\raggedright} % make the signature ragged right
+
+% \setkomavar{subject}{ a subject}  % subject of the letter
+
+\begin{document}
+\begin{letter}{}
+
+Dear Recipient, \\
+I hope this finds you well. \\
+
+I am writing to ask you about some very long and boring issue. 
+I want a long line that wraps around so I get an idea of a paragraph.\\
+
+Let me know if I may be of assistance. \\
+
+
+\closing{Best Regards, \\
+              John Minter \\
+              194 Applewood Drive} %eg. Regards
+
+\end{letter}
+\end{document}

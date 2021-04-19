@@ -1,0 +1,24 @@
+\documentclass{article}
+\usepackage{chemfig}
+
+\ExplSyntaxOn % not equivalent to what "chemfig.tex" does, but suffient
+\makeatletter
+\defKV[chemfig]{
+  scale = \g@addto@macro\CF_atomstyle{scale=#1}
+}
+\makeatother
+\ExplSyntaxOff
+
+\begin{document}
+
+Note the use of the scale factor. I set it to 1.5...
+
+\begin{tabular}{rl}
+  Normal size: 
+    & \chemfig{CH_3CH_2CH_2-CHO} \\
+  New syntax with \verb|atom style|: 
+    & \chemfig[atom style={scale=1.5}]{CH_3CH_2CH_2-CHO} \\
+  New syntax with new option \verb|scale|: 
+    & \chemfig[scale=0.8]{CH_3CH_2CH_2-CHO}
+\end{tabular}
+\end{document}
